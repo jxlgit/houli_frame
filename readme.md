@@ -1,4 +1,4 @@
-##SpingBoot快速开发框架
+## SpingBoot快速开发框架
 
 
 > 模板说明
@@ -23,7 +23,7 @@
 
 > 技术选型
 
-####后端
+#### 后端
 
 - 核心框架：Spring Boot2
 - 安全框架：Apache Shiro
@@ -35,12 +35,12 @@
 - 实时通信：WebSocket
 - 接口文档：Swagger2
 - 工具类：Apache Commons、Jackson、hutool
-####前端
+#### 前端
 
 - JS框架：jQuery
 - UI框架：jQuery EasyUI
 - 消息控件：jQuery-Toast
-####平台
+#### 平台
 
 - 数据库：MySQL
 - 开发环境：Java、Eclipse Java EE 、Maven 、SVN
