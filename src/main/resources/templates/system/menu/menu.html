@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+                	
+	    <!-- 搜索条件 -->
+        <div id="tb" style="padding:2px 5px; display: none;">
+             <form id="dg_search_form" style="margin: 0px;padding: 0px;">
+             	<!-- 第一种搜索方式，一个文本框搜索一个字段，所有搜索文本框需要在Form表单内 -->
+             	<!-- 
+		      	<label>用户名: </label><input class="easyui-textbox" name="username" style="width:110px">
+		      	<a href="javascript:;" class="easyui-linkbutton" iconCls="icon-search" onclick="submitSearch('dg_list','dg_search_form');" >搜索</a>
+		      	 -->
+		      	<!-- 第二种搜索方式，一个文本框搜索多个字段，不需要在Form表单内，注意：默认搜索的KEY都是and关系，如果需要or关系， 需要在Mapper.xml文件中将list下的where条件中and改为or
+		      	<input class="easyui-textbox" id="searchName" style="width:200px">
+		        <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-search" onclick="moreSearch('dg_list','name');" >搜索</a>
+		        -->
+		    </form>
+		    <div style="margin-top: 2px;">
+			    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" shiro:hasPermission="system:menu:add" onclick="myAddDataByDialog('dlgAdd');" >添加</a>
+			    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-trash" plain="true" shiro:hasPermission="system:menu:batchRemove" onclick="delDataBatch('dg_list','system/menu/batchRemove','menuId');">删除</a>
+		    	<a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-folder-open" plain="true" onclick="expandAll();" >全部展开</a>
+			    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-folder" plain="true" onclick="collapseAll();" >全部收缩</a>
+		    </div>
+		</div>
+		
+	    <table id="dg_list" class="easyui-treegrid" style="display: none; width: 100%;" fit="true"
+	            rownumbers="true" data-options="
+	                url: 'system/menu/list',
+	                method: 'post',
+	                rownumbers: true,
+	                idField: 'menuId',
+	                treeField: 'name',
+	                toolbar:'#tb',
+	                singleSelect:false,
+	                lines: true,
+	                checkbox: true
+	            ">
+	        <thead>
+	            <tr>
+					<!-- 注意要配置width，因为如果不给列指定宽度的话，页面加载数据的时候，会调用EasyUI中的autosizecolumn方法，这样会非常的耗时间。 -->
+	                <th data-options="field:'name'" width="220">菜单名称</th>
+	                <th data-options="field:'url'" width="200">菜单URL</th>
+	                <th data-options="field:'perms'" width="220">授权</th>
+	                <th data-options="field:'type'"  width="50" formatter='formatType'>类型</th>
+	                <th data-options="field:'icon'" width="100">图标</th>
+	                <th data-options="field:'orderNum'" width="50">排序</th>
+	                <th field="#" formatter='formatCZ' width="100">操作</th>
+	            </tr>
+	        </thead>
+	    </table>
+    
+    	<!-- 弹框（添加） -->
+		<div id="dlgAdd" class="easyui-dialog" title="添加" 
+			data-options="iconCls:'fa fa-plus',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgAddFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgAddForm" action="system/menu/save" method="post">
+				<div style="margin-bottom:10px">
+	                <select id="addType" class="easyui-combobox" name="type" style="width:100%;" data-options="label:'权限类型:',editable:false,required:true" >
+		                <option value="0">目录</option>
+		                <option value="1">菜单</option>
+		                <option value="2">按钮</option>
+		            </select>
+	            </div>
+	            <div style="margin-bottom:10px">
+	            	<input id="parentIdAdd" class="easyui-combotree" name="parentId" style="width:100%" data-options="label:'上级菜单:',required:true" >
+	            </div>
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="name" style="width:100%" data-options="label:'菜单名称:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="addUrl" class="easyui-textbox" name="url" style="width:100%" data-options="disabled:true,label:'菜单URL:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="perms" style="width:100%" data-options="label:'授权:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="icon" style="width:100%" data-options="label:'图标:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="orderNum" style="width:100%" data-options="label:'排序:',required:true">
+	            </div>
+        	</form>
+        	<div id="dlgAddFoot">
+				<a href="javascript:;" onclick="submitForm('dlgAddForm')" class="easyui-linkbutton">添加</a>
+				<a href="javascript:;" onclick="$('#dlgAdd').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+	    <!-- 弹框（修改） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改" 
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgModFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgModForm" action="system/menu/update" method="post">
+				<input name="menuId" type="hidden">
+	        	<div style="margin-bottom:10px">
+	                <select id="modType" class="easyui-combobox" name="type" style="width:100%;" data-options="label:'权限类型:',editable:false,required:true" >
+		                <option value="0">目录</option>
+		                <option value="1">菜单</option>
+		                <option value="2">按钮</option>
+		            </select>
+	            </div>
+	            <div style="margin-bottom:10px">
+	            	<input id="parentIdMod" class="easyui-combotree" name="parentId" style="width:100%" data-options="label:'上级菜单:',required:true" >
+	            </div>
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="name" style="width:100%" data-options="label:'菜单名称:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="modUrl" class="easyui-textbox" name="url" style="width:100%" data-options="disabled:true,label:'菜单URL:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="perms" style="width:100%" data-options="label:'授权:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="icon" style="width:100%" data-options="label:'图标:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="orderNum" style="width:100%" data-options="label:'排序:',required:true">
+	            </div>
+        	</form>
+        	<div id="dlgModFoot">
+				<a href="javascript:;" onclick="submitForm('dlgModForm')" class="easyui-linkbutton">修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		<script type="text/javascript" src="app/js/system/menu/menu.js"></script>
+		
+		<div shiro:hasPermission="system:menu:get">
+			<script>comm_shiro_str += 'system:menu:get,';</script>
+		</div>
+		<div shiro:hasPermission="system:menu:edit">
+			<script>comm_shiro_str += 'system:menu:edit,';</script>
+		</div>
+		<div shiro:hasPermission="system:menu:remove">
+			<script>comm_shiro_str += 'system:menu:remove,';</script>
+		</div>
+
+	</body>
+
+</html>

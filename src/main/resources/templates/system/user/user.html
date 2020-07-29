@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+		<div class="easyui-layout" fit="true">
+	        <div id="p" data-options="region:'west',split:true" style="width:20%;padding:5px;">
+	            <div class="easyui-panel" data-options="border:false" fit="true">
+			        <ul id="userTree" class="easyui-tree" data-options="url:'system/dept/tree',method:'get',animate:true,lines:true"></ul>
+			    </div>
+	        </div>
+	        <div data-options="region:'center'" style="padding:5px">
+	        	<!-- 搜索条件 -->
+		        <div id="tb" style="padding:2px 5px; display: none;">
+		             <form id="dg_search_form" style="margin: 0px;padding: 0px;">
+		             	<span>
+						    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" shiro:hasPermission="system:user:add" onclick="loadUrlByDialog('dlgAdd','system/user/add');" >添加</a>
+						    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-trash" plain="true" shiro:hasPermission="system:user:batchRemove" onclick="delDataBatch('dg_list','system/user/batchRemove','userId');">删除</a>
+					    </span>
+		             	<!-- 第一种搜索方式，一个文本框搜索一个字段，所有搜索文本框需要在Form表单内 
+				      	<label>用户名: </label><input class="easyui-textbox" name="username" style="width:110px">
+				      	<label>姓名: </label><input class="easyui-textbox" name="name" style="width:110px">
+				      	<input id="searchDeptId" name="deptId" type="hidden">
+				      	<a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-search" onclick="submitSearch('dg_list','dg_search_form');" >搜索</a>
+				      	-->
+				      	<!-- 第二种搜索方式，一个文本框搜索多个字段，不需要在Form表单内，注意：默认搜索的KEY都是and关系，如果需要or关系， 需要在Mapper.xml文件中将list下的where条件中and改为or
+				      	<input class="easyui-textbox" id="searchName" style="width:200px">
+				        <a href="javascript:;" class="easyui-linkbutton" iconCls="icon-search" onclick="moreSearch('dg_list','name,username');" >搜索</a>-->
+				        <!-- 第三种搜索方式，集成easyui-searchbox -->
+				        <span style="float: right;" >
+						    <input class="easyui-searchbox" data-options="prompt:'请输入搜索内容',menu:'#searchmm',searcher:doSearch" style="width:250px;">
+					    </span>
+						<div id="searchmm">
+					        <div data-options="name:'username'">用户名</div>
+					        <div data-options="name:'name'">姓名</div>
+					    </div>
+				    </form>
+				</div>
+			    	
+			    <!-- 表格数据 -->
+		        <table id="dg_list" class="easyui-datagrid" style="display: none; width: 100%;" fit="true" data-options="idField:'userId',singleSelect:false,method:'post',toolbar:'#tb'" 
+		        	url="system/user/list" rownumbers="true" pagination="true">
+					<thead>
+						<tr>
+							<!-- 注意如果有排序，排序的field要和数据库中字段一致，如果不一致，需在Mapper.xml文件中判断 -->
+							<th data-options="field:'ck',checkbox:true"></th>
+							<th field="userId" sortable="true">用户ID</th>
+							<th field="name" sortable="true">姓名</th>
+							<th field="username">用户名</th>
+							<th field="email">邮箱</th>
+							<th field="roleNamesStr" width="200" formatter='showCellTooltip'>角色</th>
+							<th field="status" formatter='formatST'>状态</th>
+							<th field="#" formatter='formatCZ'>操作</th>
+						</tr>
+					</thead>
+				</table>
+	        </div>
+	    </div>
+    
+	
+		<!-- 弹框（预览） -->
+		<div id="dlgPreview" class="easyui-dialog" title="预览" border="false"
+			data-options="iconCls:'icon-search',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,onLoad: function(){$(this).dialog('center');}" 
+			style="width:400px;padding:5px; display: none;">
+	    </div>
+	    
+	    <!-- 弹框（修改） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改" border="false"
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,onLoad: function(){$(this).dialog('center');}" 
+			style="width:400px;padding:5px;display: none;">
+	    </div>
+	    
+	    <!-- 弹框（添加） -->
+		<div id="dlgAdd" class="easyui-dialog" title="添加" border="false"
+			data-options="iconCls:'icon-add',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,onLoad: function(){$(this).dialog('center');}" 
+			style="width:400px;padding:5px; display: none;">
+	    </div>
+	    
+	    <!-- 弹框（重置密码） -->
+		<div id="dlgReset" class="easyui-dialog" title="初始化密码" border="false"
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,onLoad: function(){$(this).dialog('center');}" 
+			style="width:400px;padding:5px; display: none;">
+	    </div>
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		<script type="text/javascript" src="app/js/system/user/user.js"></script>
+		
+		<div shiro:hasPermission="system:user:get">
+			<script>comm_shiro_str += 'system:user:get,';</script>
+		</div>
+		<div shiro:hasPermission="system:user:edit">
+			<script>comm_shiro_str += 'system:user:edit,';</script>
+		</div>
+		<div shiro:hasPermission="system:user:remove">
+			<script>comm_shiro_str += 'system:user:remove,';</script>
+		</div>
+		<div shiro:hasPermission="system:user:resetPwd">
+			<script>comm_shiro_str += 'system:user:resetPwd,';</script>
+		</div>
+		
+
+	</body>
+
+</html>

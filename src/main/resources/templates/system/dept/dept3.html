@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>系统管理</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-treegrid/0.2.0/css/jquery.treegrid.min.css">
+</head>
+
+<body>
+	<div style="padding: 5px;">
+	    <table id="table"></table>
+	    <br/>
+	    <button onclick="test()">选择</button>
+	</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+<script src="https://cdn.bootcss.com/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
+
+<script type="text/javascript">
+    var $table = $('#table');
+
+    $(function() {
+
+        $table.bootstrapTable({
+			method : "GET", // 请求数据的ajax类型
+			url : '/system/dept/list', // 请求数据的ajax的url
+            idField: 'deptId',
+            columns : [
+	            { field: 'check',  checkbox: true, formatter: function (value, row, index) {
+	                    if (row.check == true) {
+	                        console.log(row.deptId);
+	                        //设置选中
+	                        return {  checked: true };
+	                    }
+	                }
+	            },
+				{
+					field : 'name',
+					title : '部门名称',
+					width :400
+				},
+				{
+					field : 'orderNum',
+					title : '排序',
+                    align : 'center',
+                    width :100
+				},
+				{
+					field : 'delFlag',
+					title : '状态',
+					align : 'center',
+					width :100,
+					formatter : function(value, item, index) {
+						if (item.delFlag == '0') {
+							return '<span class="label label-danger">禁用</span>';
+						} else if (item.delFlag == '1') {
+							return '<span class="label label-primary">正常</span>';
+						}
+					}
+				},
+				{
+					title : '操作',
+					field : 'deptId',
+					formatter : function(value, item, index) {
+						var e = '<a href="#" title="编辑" mce_href="#" onclick="edit(\''+ item.deptId + '\')" style=\"color: #3d76b9; text-decoration:underline;margin-right: 10px;\">编辑</a> ';
+						var a = '<a href="#" title="增加下級"  mce_href="#" onclick="add(\''+ item.deptId + '\')" style=\"color: #3d76b9; text-decoration:underline;margin-right: 10px;\">增加下級</a> ';
+						var d = '<a href="#" title="删除"  mce_href="#" onclick="removeone(\''+ item.deptId + '\')" style=\"color: #3d76b9; text-decoration:underline;margin-right: 10px;\">删除</a> ';
+						return e + a + d;
+					}
+				} ],
+
+            // bootstrap-table-treegrid.js 插件配置 -- start
+
+            //在哪一列展开树形
+            treeShowField: 'name',
+            //指定父id列
+            parentIdField: 'parentId',
+            
+            onResetView: function(data) {
+                //console.log('load');
+                $table.treegrid({
+                    initialState: 'collapsed',// 所有节点都折叠
+                    // initialState: 'expanded',// 所有节点都展开，默认展开
+                    treeColumn: 1,
+                    // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+                    // expanderCollapsedClass: 'glyphicon glyphicon-plus',
+                    onChange: function() {
+                        $table.bootstrapTable('resetWidth');
+                    }
+                });
+
+                //只展开树形的第一级节点
+                $table.treegrid('getRootNodes').treegrid('expand');
+
+            },
+            onCheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                // 勾选子类
+                selectChilds(datas,row,"deptId","parentId",true);
+
+                // 勾选父类
+                selectParentChecked(datas,row,"deptId","parentId")
+
+                // 刷新数据
+                $table.bootstrapTable('load', datas);
+            },
+
+            onUncheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                selectChilds(datas,row,"deptId","parentId",false);
+                $table.bootstrapTable('load', datas);
+            },
+            // bootstrap-table-treetreegrid.js 插件配置 -- end
+        });
+    });
+
+</script>
+<script>
+    /**
+     * 选中父项时，同时选中子项
+     * @param datas 所有的数据
+     * @param row 当前数据
+     * @param id id 字段名
+     * @param pid 父id字段名
+     */
+    function selectChilds(datas,row,id,pid,checked) {
+        for(var i in datas){
+            if(datas[i][pid] == row[id]){
+                datas[i].check=checked;
+                selectChilds(datas,datas[i],id,pid,checked);
+            };
+        }
+    }
+
+    function selectParentChecked(datas,row,id,pid){
+        for(var i in datas){
+            if(datas[i][id] == row[pid]){
+                datas[i].check=true;
+                selectParentChecked(datas,datas[i],id,pid);
+            };
+        }
+    }
+
+    function test() {
+        var selRows = $table.bootstrapTable("getSelections");
+        if(selRows.length == 0){
+            alert("请至少选择一行");
+            return;
+        }
+
+        var postData = "";
+        $.each(selRows,function(i) {
+            postData +=  this.deptId;
+            if (i < selRows.length - 1) {
+                postData += "， ";
+            }
+        });
+        alert("你选中行的 id 为："+postData);
+
+    }
+
+    function add(id) {
+        alert("add 方法 , id = " + id);
+    }
+    function removeone(id) {
+        alert("del 方法 , id = " + id);
+    }
+    function edit(id) {
+        alert("update 方法 , id = " + id);
+    }
+
+
+</script>
+</html>

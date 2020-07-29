@@ -1,0 +1,21 @@
+@import 'http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+/**
+图标库网址：
+https://www.thinkcmf.com/font/search/index.html
+**/
+
+ /*easyUI弹出框按钮居中*/
+.dialog-button { text-align: center; }
+
+
+/* 设置iframe子页面中最小宽度和高度*/
+body {
+	min-height: 500px; 
+	min-width: 1000px;
+	margin:5px 3px 5px 5px;
+	background-color: #fafafa;
+	font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif,
+ "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+

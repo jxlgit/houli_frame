@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+        <div class="easyui-panel" fit="false" style="display: none; padding: 5px; width: 100%;" title="修改" data-options="footer:'#pageEditFoot'">
+        	<form id="pageModForm" action="${pathName}/${classname}/update" method="post">
+        		#foreach($column in $columns)
+					#if($pk.columnName == $column.columnName)
+					
+				<input name="${column.attrname}" th:value="${${classname}.${pk.attrname}}" type="hidden">
+					#else
+					
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="${column.attrname}" th:value="${${classname}.${column.attrname}}" style="width:30%" data-options="label:'${column.comments}:'">
+	            </div>
+	            	#end
+				#end
+				
+	        </form>
+        	<div id="pageEditFoot" style="padding: 5px;">
+        		<a href="javascript:;" onclick="submitForm('pageModForm')" class="easyui-linkbutton">修改</a>
+				<a href="javascript:;" onclick="removeCurrentTab()" class="easyui-linkbutton">关闭</a>
+			</div>
+	    </div>        	
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+
+	</body>
+
+</html>

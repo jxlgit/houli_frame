@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+        <div class="easyui-panel" fit="false" style="display: none; padding: 5px; width: 100%;" title="添加" data-options="footer:'#pageAddFoot'">
+        	<form id="pageAddForm" action="${pathName}/${classname}/save" method="post">
+        		#foreach($column in $columns)
+					#if($pk.columnName != $column.columnName)
+					
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="${column.attrname}" style="width:30%" data-options="label:'${column.comments}:',required:true">
+	            </div>
+	            	#end
+				#end
+				
+        	</form>
+        	<div id="pageAddFoot" style="padding: 5px;">
+        		<a href="javascript:;" onclick="submitForm('pageAddForm')" class="easyui-linkbutton">添加</a>
+				<a href="javascript:;" onclick="removeCurrentTab()" class="easyui-linkbutton">关闭</a>
+			</div>
+	    </div>          	
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+
+	</body>
+
+</html>

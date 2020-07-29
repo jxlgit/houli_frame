@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+        <div class="easyui-panel" fit="false" style="display: none; padding: 5px; width: 100%;" title="修改" data-options="footer:'#pageEditFoot'">
+        	<form id="pageModForm" action="template_code/table2/update" method="post">
+        		<input name="id" th:value="${table.id}" type="hidden">
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="username" th:value="${table.username}" style="width:30%" data-options="label:'用户名:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="password" th:value="${table.password}" style="width:30%" data-options="label:'密码:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="email" th:value="${table.email}" style="width:30%" data-options="label:'邮箱:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="address" th:value="${table.address}" style="width:30%" data-options="label:'地址:'">
+	            </div>
+	        </form>
+        	<div id="pageEditFoot" style="padding: 5px;">
+        		<a href="javascript:;" onclick="submitForm('pageModForm')" class="easyui-linkbutton">修改</a>
+				<a href="javascript:;" onclick="removeCurrentTab()" class="easyui-linkbutton">关闭</a>
+			</div>
+	    </div>        	
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+
+	</body>
+
+</html>

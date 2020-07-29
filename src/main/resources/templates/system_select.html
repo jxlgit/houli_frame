@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})">  
+	<title>系统选择</title>  
+	
+	<link rel="stylesheet" href="plugins/jquery-toast/jquery.toast.min.css"/>
+	<script type="text/javascript">
+	
+	</script>
+		
+	<style>
+		
+		.float .left {
+			float: left;
+			width: 200px;
+			font-size: 20px;
+			font-weight: bold;
+			background: transparent;
+		}
+		
+		.float .center {
+			margin: 0 200px;
+			text-align: left;
+			font-size: 18px;  
+			color: #F1F1F1;
+			background: transparent;
+		}
+		
+		.float .right {
+			float: right;
+			width: 250px;
+			background: transparent;
+		}
+		
+		.right .panel-body{
+			background: #112833;
+		}
+		div.head.panel-body.panel-body-noheader.panel-body-noborder.layout-body{
+			background: #112833;
+		}
+		.panel-header, .panel-body{
+			border: 0px;
+		}
+		
+		/** 头部菜单向下箭头  **/	
+		.right .m-btn-downarrow, .s-btn-downarrow {
+			background: url('app/img/menu_arrows.png') no-repeat 0 center;
+		}
+		/** 头部按钮鼠标移动上去样式  **/
+		.float .l-btn-plain:hover{
+			background: transparent;
+			border-color: transparent;
+			border-radius:0px;
+			border-bottom: 3px;
+			border-style: solid;
+		}	
+		/** 头部按钮菜单鼠标移开后边框颜色  **/
+		.right .float .l-btn-plain{
+			border-color: #112833;
+		}
+		.easyui-menubutton{
+			background: #112833;
+		}
+		
+		.center {
+			background: #193c4d;
+		}
+		.center .item {
+			margin:5px;
+		    vertical-align: top;
+		    display: inline-block;
+		    text-align: center;
+		}
+		
+		.center .item img{
+			margin-top:50px;
+		    width: 110px;
+		    height: 110px;
+		}
+		.center .item div{
+			font-size: 24pt;
+			color: #fff;
+		}
+		.item:hover{
+			cursor: pointer;
+			transform:translate(0,-5px);
+			-webkit-box-shadow: #112833 0px 10px 10px;
+            -moz-box-shadow: #112833 0px 10px 10px;
+            box-shadow: #112833 0px 10px 10px;  
+		}
+
+
+	</style>
+</head> 
+
+	<body>
+		<div class="easyui-layout" fit="true">
+			<!-- 头部信息 -->
+			<div data-options="region:'north',border:false" class="head" style="height:61px; line-height: 61px; padding-left: 5px; ">
+				<div class="float">
+					<div class="left">
+						<!-- LOGO项     -->
+						<div style="margin-left: 10px;">
+							<img width="106" height="22" alt="image" src="app/img/logo.png"/>
+						</div>
+					</div>
+					<div class="right">
+						<div class="easyui-panel" style="display: none; text-align:right; padding-right: 5px;" data-options="border:false">
+							<span class="easyui-menubutton" data-options="menu:'#mm2'">
+								<i style="color: #fff" class="fa fa-user" aria-hidden="true"></i>
+								<span style="color: #fff" th:text="${name}"></span> &nbsp;<span style="color: #fff">欢迎你</span>
+							</span>
+						</div>
+						<div id="mm2">
+								<div data-options="iconCls:'fa fa-edit'" onclick="$('#dlgMod').dialog('open');">修改密码</div>
+								<div data-options="iconCls:'fa fa-power-off'" onclick="forceLogout();">退出登录</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!--内容页-->
+			<div data-options="region:'center',iconCls:'icon-ok'" class="center">
+				<div style="text-align: center; margin-top: 50px">
+					<div>
+						<div class="item" style="width: 444px;height: 264px; background: #217ac0;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_1.png"/>
+							<div>DMIAES智能分析</div>
+						</div>
+						<div class="item" style="width: 247px;height: 264px; background: #ce9d00;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_2.png"/>
+							<div>智能BI</div>
+						</div>
+						<div class="item" style="width: 244px;height: 264px; background: #78bb02;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_3.png"/>
+							<div>知识库</div>
+						</div>
+					</div>
+					
+					<div style="margin-top: 5px;">
+						<div class="item" style="width: 312px;height: 264px; background: #7fc800;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_4.png"/>
+							<div>绩效管理系统</div>
+						</div>
+						<div class="item" style="width: 312px;height: 264px; background: #1cb0fd;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_5.png"/>
+							<div>机构信息采集</div>
+						</div>
+						<div class="item" style="width: 312px;height: 264px; background: #db681e;" onclick="openSystem('');">
+							<img alt="image" src="app/img/module_6.png"/>
+							<div>系统设置</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	    
+	    <!-- 弹框（修改密码） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改密码" 
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgModFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgModForm" action="system/user/resetPwd" method="post">
+				<input name="userDO.userId" th:value="${userId}" type="hidden">
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-passwordbox" name="pwdOld" style="width:100%" data-options="label:'原密码:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="pass" class="easyui-passwordbox" name="pwdNew" style="width:100%" data-options="label:'新密码:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-passwordbox" validType="confirmPass['#pass']" style="width:100%" data-options="label:'重复新密码:',required:true">
+	            </div>
+        	</form>
+        	<div id="dlgModFoot">
+				<a href="javascript:;" onclick="mySubmitForm('dlgModForm')" class="easyui-linkbutton" >修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+		<!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+		<script type="text/javascript">
+		
+			function openSystem(url){
+				if(url == ''){
+					$.messager.alert('提示', '该功能正在建设中', 'info');
+				} else {
+					parent.location.href = 'url';
+				}
+				
+			}
+		    
+			$.extend($.fn.validatebox.defaults.rules, {
+	            confirmPass: {
+	                validator: function(value, param){
+	                    var pass = $(param[0]).passwordbox('getValue');
+	                    return value == pass;
+	                },
+	                message: '新密码和重复新密码不一致'
+	            }
+	        })
+		    
+		    /**
+		    * 提交表单(EasyUI插件方式)
+		    * @param {String} formID 待提交表单的ID
+		    */
+		    function mySubmitForm(formID){
+		    	$('#' + formID).form('submit', {
+		           onSubmit: function(param){
+		    	       	// param.p1 = 'value1';可以添加额外的参数
+		    	        // 在提交之前触发，返回false以阻止提交操作,可以做一些检查。                    
+		    	       	var isValid = $(this).form('validate');
+		    	   		if (!isValid){
+		    	   			return isValid;     
+		    	   		} else {
+		    	   			$.messager.progress();
+		    	   		}
+		           },
+		           success:function(data){
+		           	// change the JSON string to javascript object
+		           	var data = eval('(' + data + ')'); 
+		           	if (data.code == 0){
+		    	       		$.messager.alert('提示', data.msg, 'info');
+		    	       		$('#dlgMod').dialog('close');
+		                } else {
+		    				$.messager.alert('提示', data.msg, 'error');
+		    			}
+		           		$.messager.progress('close');
+		           },
+		           onLoadError:function(){
+		           		$.messager.progress('close');
+		           }
+		    	});
+		    }
+		    /**
+		    * 注销
+		    */
+		    function forceLogout(){
+		    	$.messager.confirm('注销', '你确定要退出登录吗?', function(r){
+		    		if (r){
+		    			parent.location.href = 'logout';
+		    		}
+		    	});
+		    }
+		    
+		    
+	    </script> 	
+	    
+	</body>
+
+</html>

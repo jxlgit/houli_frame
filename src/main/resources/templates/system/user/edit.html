@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+        <div class="easyui-panel" fit="false" style="padding: 10px; width: 100%;" data-options="footer:'#dlgModFoot'">
+        	<form id="dlgModForm" action="system/user/update" method="post">
+				<input name="userId" th:value="${user.userId}" type="hidden">
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="name" th:value="${user.name}" style="width:100%" data-options="label:'姓名:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="username" th:value="${user.username}" style="width:100%" data-options="label:'用户名:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="modSelectDept" class="easyui-combotree" name="deptId" th:value="${user.deptId}" style="width:100%" data-options="url:'system/dept/tree',method:'get',label:'部门:',editable:false,required:true" >
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="email" style="width:100%" th:value="${user.email}" data-options="label:'邮箱:'">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <select class="easyui-combobox" name="status" style="width:100%;" th:value="${user.status}" data-options="label:'状态:',editable:false,required:true" >
+		                <option value="1">正常</option>
+		                <option value="0">禁用</option>
+		            </select>
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="modRoleIds" class="easyui-combobox" name="roleIds" style="width:100%;"  data-options="
+                    url:'system/role/list_all',
+                    method:'get',
+                    valueField:'roleId',
+                    textField:'roleName',
+                    multiple:true,
+                    editable:false,
+                    panelHeight:'auto',
+                    label: '角色:',
+                    required:true
+                    ">
+	            </div>
+        	</form>
+        	<div id="dlgModFoot" style="padding: 5px; text-align: center;">
+				<a href="javascript:;" onclick="submitForm('dlgModForm')" class="easyui-linkbutton">修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>        	
+	    
+	    <script th:inline="javascript">
+	    	var roleIds = [[${roleIds}]];
+		</script>
+	    <script type="text/javascript">
+		    $(function () {
+		    	
+		    	$('#modRoleIds').combobox({
+			    	onLoadSuccess: function(){
+			    		$(this).combobox('setValues', roleIds);
+			    	}
+			    });
+		    	
+		    	$('#modSelectDept').combotree({
+		    		//设置不能选择根节点
+		    		onBeforeSelect: function (node) {
+		                if (!$("#modSelectDept").combotree("tree").tree('isLeaf', node.target) && node.id <= 0) {
+		                    return false;
+		                }
+		            },
+				});
+		    	
+		    });
+		    
+	    </script>
+
+	</body>
+
+</html>

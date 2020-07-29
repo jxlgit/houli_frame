@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houli.system.dao.UserDao">
+
+	<select id="get" resultType="com.houli.system.domain.UserDO">
+		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user where user_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.houli.system.domain.UserDO">
+<!-- 		select `user_id`,`username`,`name`,`password`,`dept_id`,`email`,`mobile`,`status`,`user_id_create`,`gmt_create`,`gmt_modified`,`sex`,`birth`,`pic_id`,`live_address`,`hobby`,`province`,`city`,`district` from sys_user -->
+        
+        select a.`user_id`,a.`username`,a.`name`,a.`password`,a.`dept_id`,a.`email`,a.`mobile`,a.`status`,a.`user_id_create`,a.`gmt_create`,a.`gmt_modified`,
+		GROUP_CONCAT(b.role_id) role_ids_str, GROUP_CONCAT(c.role_name) role_names_str from sys_user a 
+		INNER JOIN sys_user_role b ON a.user_id = b.user_id 
+		INNER JOIN sys_role c ON b.role_id = c.role_id 
+        <where>  
+		  		  <if test="userId != null and userId != ''"> and a.user_id = #{userId} </if>
+		  		  <if test="username != null and username != ''"> and a.username = #{username} </if>
+		  		  <if test="name != null and name != ''"> and a.name = #{name} </if>
+		  		  <if test="password != null and password != ''"> and a.password = #{password} </if>
+		  		  <if test="deptId != null and deptId != ''"> and a.dept_id = #{deptId} </if>
+		  		  <if test="email != null and email != ''"> and a.email = #{email} </if>
+		  		  <if test="mobile != null and mobile != ''"> and a.mobile = #{mobile} </if>
+		  		  <if test="status != null and status != ''"> and a.status = #{status} </if>
+		  		  <if test="userIdCreate != null and userIdCreate != ''"> and a.user_id_create = #{userIdCreate} </if>
+		  		  <if test="gmtCreate != null and gmtCreate != ''"> and a.gmt_create = #{gmtCreate} </if>
+		  		  <if test="gmtModified != null and gmtModified != ''"> and a.gmt_modified = #{gmtModified} </if>
+		  		  <if test="sex != null and sex != ''"> and a.sex = #{sex} </if>
+		  		  <if test="birth != null and birth != ''"> and a.birth = #{birth} </if>
+		  		  <if test="picId != null and picId != ''"> and a.pic_id = #{picId} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and a.live_address = #{liveAddress} </if>
+		  		  <if test="hobby != null and hobby != ''"> and a.hobby = #{hobby} </if>
+		  		  <if test="province != null and province != ''"> and a.province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and a.city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and a.district = #{district} </if>
+		 </where>
+		 GROUP BY a.`user_id` 
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by a.${sort} ${order}
+            </when>
+			<otherwise>
+                order by a.user_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_user
+		 <where>  
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="username != null and username != ''"> and username = #{username} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="password != null and password != ''"> and password = #{password} </if>
+		  		  <if test="deptId != null and deptId != ''"> and dept_id = #{deptId} </if>
+		  		  <if test="email != null and email != ''"> and email = #{email} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="userIdCreate != null and userIdCreate != ''"> and user_id_create = #{userIdCreate} </if>
+		  		  <if test="gmtCreate != null and gmtCreate != ''"> and gmt_create = #{gmtCreate} </if>
+		  		  <if test="gmtModified != null and gmtModified != ''"> and gmt_modified = #{gmtModified} </if>
+		  		  <if test="sex != null and sex != ''"> and sex = #{sex} </if>
+		  		  <if test="birth != null and birth != ''"> and birth = #{birth} </if>
+		  		  <if test="picId != null and picId != ''"> and pic_id = #{picId} </if>
+		  		  <if test="liveAddress != null and liveAddress != ''"> and live_address = #{liveAddress} </if>
+		  		  <if test="hobby != null and hobby != ''"> and hobby = #{hobby} </if>
+		  		  <if test="province != null and province != ''"> and province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.houli.system.domain.UserDO" useGeneratedKeys="true" keyProperty="userId">
+		insert into sys_user
+		(
+			`username`, 
+			`name`, 
+			`password`, 
+			`dept_id`, 
+			`email`, 
+			`mobile`, 
+			`status`, 
+			`user_id_create`, 
+			`gmt_create`, 
+			`gmt_modified`, 
+			`sex`, 
+			`birth`, 
+			`pic_id`, 
+			`live_address`, 
+			`hobby`, 
+			`province`, 
+			`city`, 
+			`district`
+		)
+		values
+		(
+			#{username}, 
+			#{name}, 
+			#{password}, 
+			#{deptId}, 
+			#{email}, 
+			#{mobile}, 
+			#{status}, 
+			#{userIdCreate}, 
+			#{gmtCreate}, 
+			#{gmtModified}, 
+			#{sex}, 
+			#{birth}, 
+			#{picId}, 
+			#{liveAddress}, 
+			#{hobby}, 
+			#{province}, 
+			#{city}, 
+			#{district}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.houli.system.domain.UserDO">
+		update sys_user 
+		<set>
+			<if test="username != null">`username` = #{username}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="password != null">`password` = #{password}, </if>
+			<if test="deptId != null">`dept_id` = #{deptId}, </if>
+			<if test="email != null">`email` = #{email}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="userIdCreate != null">`user_id_create` = #{userIdCreate}, </if>
+			<if test="gmtCreate != null">`gmt_create` = #{gmtCreate}, </if>
+			<if test="gmtModified != null">`gmt_modified` = #{gmtModified}, </if>
+			<if test="sex != null">`sex` = #{sex}, </if>
+			<if test="birth != null">`birth` = #{birth}, </if>
+			<if test="picId != null">`pic_id` = #{picId}, </if>
+			<if test="liveAddress != null">`live_address` = #{liveAddress}, </if>
+			<if test="hobby != null">`hobby` = #{hobby}, </if>
+			<if test="province != null">`province` = #{province}, </if>
+			<if test="city != null">`city` = #{city}, </if>
+			<if test="district != null">`district` = #{district}</if>
+		</set>
+		where user_id = #{userId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_user where user_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_user where user_id in 
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
+
+	<select id="listAllDept" resultType="long">
+				select DISTINCT dept_id from sys_user
+	</select>
+</mapper>

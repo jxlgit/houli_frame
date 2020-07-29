@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})">  
+	<title>DMIAES</title>  
+	
+	<link rel="stylesheet" href="plugins/jquery-toast/jquery.toast.min.css"/>
+	<script th:inline="javascript">
+	    var menus = [[${menus}]];
+	</script>
+	<script type="text/javascript">
+		//菜单数据
+		var data = menus;
+	</script>
+		
+	<style>
+		.tabs-panels {
+			padding-top: 0px;
+			padding-left: 0px;
+			margin-left: 1px;
+		}
+		.float .fa {
+			color: #686868;
+			font-size: 16px;
+		}
+		.float .left {
+			float: left;
+			width: 180px;
+			font-size: 20px;
+		}
+		
+		.float .center {
+			margin: 0 180px;
+			text-align: center;
+			font-size: 18px;  
+			color: #686868;
+		}
+		
+		.float .right {
+			float: right;
+			width: 450px;
+		}
+		.wocome {
+			font-size: 12px;  
+			color: #686868;
+		}
+		
+		/* 菜单及头部样式 （开始）*/	
+		/** 头部按钮点击后背景样式  **/			
+		.float .l-btn-plain-selected, .l-btn-plain-selected:hover{
+			background: #2c3b41;
+			border-radius:0px;
+			border-bottom: 3px;
+			border-style: solid;
+		}	
+		/** 头部按钮鼠标移动上去样式  **/
+		.float .l-btn-plain:hover{
+			background: transparent;
+			border-color: transparent;
+			border-radius:0px;
+			border-bottom: 3px;
+			border-style: solid;
+		}	
+		
+		/** 去除头部按钮点击后有蓝色边框  **/
+		.float .l-btn-plain{
+			outline:none; 
+		}
+		
+		/** 头部按钮菜单鼠标移开后边框颜色  **/
+		.right .float .l-btn-plain{
+			border-color: #F1F1F1;
+		}
+		
+		/** 头部按钮文字颜色  **/
+		.float .l-btn{
+			color: #F1F1F1;
+		}
+		
+		/** 头部LOGO颜色  **/
+		.float .left {
+			color: #F1F1F1;
+		}
+		/** 头部背景颜色  **/
+		.head{
+			background: #FFF;
+			color: #404040;
+		}
+		
+		
+		/** 左边菜单背景颜色  **/
+		.left-menu-bg{
+			background: #193c4d;
+			width: 180px;
+		}
+		.sidemenu {
+			font-size: 14px;  
+		}
+		.logo {
+			height: 86px; 
+			line-height: 86px; 
+			text-align: center; 
+			background: #193c4d;
+		}
+		/** 根菜单字体颜色 **/
+		.sidemenu .accordion .panel-title{
+		    color: #b8c7ce;
+		    font-weight: normal;
+		}
+		/** 收缩后头样式 **/
+		.sidemenu .accordion .accordion-header{
+		    background: #193c4d;
+		    color: #a6dcf6;
+		}
+		/** 展开后子项样式 **/
+		.sidemenu .accordion .accordion-body{
+		    background: #112833;
+		    color: #a6dcf6;
+		}
+		/** 展开后头样式 **/
+		.sidemenu .accordion .accordion-header-selected{
+		    background: #193c4d;
+		}
+		.sidemenu .accordion .accordion-collapse{
+		    background: transparent;
+		}
+		/** 鼠标移上子项样式 **/
+		.sidemenu .tree-node-hover{
+		    background: #2a6480;
+		    color: #a6dcf6;
+		}
+		/** 鼠标点击子项样式 **/
+		.sidemenu .tree-node-selected{
+		    background: #2a6480;
+		    color: #a6dcf6;
+		}
+		.sidemenu .accordion-header .panel-icon{
+		    font-size: 16px;
+		}
+		.sidemenu .accordion-header .panel-tool{
+		    display: none;
+		}
+		.sidemenu .accordion-header::after,
+		.sidemenu .tree-node-nonleaf::after{
+		    display: inline-block;
+		    vertical-align: top;
+		    border-style: solid;
+		    transform:rotate(45deg);
+		    width: 4px;
+		    height: 4px;
+		    content: '';
+		    position: absolute;
+		    right: 10px;
+		    top: 50%;
+		    margin-top: -3px;
+		    border-width: 0 1px 1px 0;
+		}
+		.sidemenu .accordion-header-selected::after{
+		    transform:rotate(-135deg);
+		}
+		.sidemenu .tree-node-nonleaf::after{
+		    transform:rotate(-135deg);
+		}
+		.sidemenu .tree-node-nonleaf-collapsed::after{
+		    transform:rotate(45deg);
+		}
+		.sidemenu-collapsed .accordion-header::after{
+		    display: none;
+		}
+		.sidemenu-tooltip .accordion{
+		    border-color: #1e282c;
+		}
+		/* 菜单及头部样式 （结束）*/
+
+	</style>
+</head> 
+
+	<body>
+		<div id = "mainLayout" class="easyui-layout" data-options="border:false" fit="true">
+			
+			<div class="left-menu-bg" data-options="region:'west', border:false">
+				<!-- LOGO项     -->
+				<div class="logo">
+					<img id="logo" alt="image" src="app/img/logo.png"/>
+				</div>
+				<!-- 菜单项     -->
+				<div id="sm" class="easyui-sidemenu left-menu-bg" data-options="width:180, data:data, border:false,onSelect: function(item){
+							addTab(item.text,item.url,true); 
+						}">
+				</div>
+			</div>
+			
+			<div data-options="region:'center',border:false">
+			
+				<div class="easyui-layout" data-options="border:false" fit="true">
+					<!-- 头部信息 -->
+					<div data-options="region:'north',border:false" class="head" style="height:40px; line-height: 36px; padding-left: 5px; display: none;">
+						<div class="float">
+							<div class="left">
+								<i class="fa fa-bars" aria-hidden="true" onclick="toggleMenu();" style="margin-left: 2px; font-size: 22px; cursor:pointer"></i>
+							</div>
+							<div class="right">
+								<div class="easyui-panel head" style="display: none; text-align:right; padding-right: 5px;" data-options="border:false">
+									<a href="javascript:;" class="easyui-linkbutton easyui-tooltip head" title="我的消息" data-options="plain:true,iconCls:'fa fa-bell'"></a>
+									<a href="javascript:;" onclick="addTab('API接口','swagger-ui.html',true);" class="easyui-linkbutton easyui-tooltip head" title="API接口" data-options="plain:true,iconCls:'fa fa-plug'"></a>
+									<a href="javascript:;" onclick="addTab('Eureka注册中心','http://192.16.8.13:8888/',true);" class="easyui-linkbutton easyui-tooltip head" title="Eureka注册中心" data-options="plain:true,iconCls:'fa fa-bullseye'"></a>
+									<a href="javascript:;" onclick="addTab('熔断器仪表盘','hystrix',true);" class="easyui-linkbutton easyui-tooltip head" title="熔断器仪表盘" data-options="plain:true,iconCls:'fa fa-chain-broken'"></a>
+									|
+									<span class="easyui-menubutton head" data-options="menu:'#mm2'">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										<span class="wocome" th:text="${name}"></span> &nbsp;<span class="wocome">欢迎你</span>
+									</span>
+								</div>
+								<div id="mm2">
+									<div data-options="iconCls:'fa fa-edit'" onclick="$('#dlgMod').dialog('open');">修改密码</div>
+									<div data-options="iconCls:'fa fa-power-off'" onclick="forceLogout();">退出登录</div>
+								</div>
+							</div>
+							<div class="center">
+							    医院疾病管理智能分析及评估系统
+							</div>
+						</div>
+		
+					</div>
+		
+					<!--内容页-->
+					<div data-options="region:'center',iconCls:'icon-ok',border:false">
+		
+						<div class="easyui-layout" data-options="border:false" fit="true">
+							<!--内容页-->
+							<div data-options="region:'center',iconCls:'icon-ok'">
+								<div id="centerPanel" class="easyui-tabs" data-options="tools:'#tab-tools'" border="false" fit="true"></div>
+								<div id="tab-tools" style="display: none;">
+									<a href="javascript:;" class="easyui-menubutton" data-options="menu:'#mm_tab_tools'">操作</a>
+									<div id="mm_tab_tools">
+										<div onclick="removeAllTabs();">关闭所有</div>
+										<div onclick="removeOtherTabs();">关闭其他</div>
+										<div onclick="toggleMenu();">展开/收缩菜单</div>
+									</div>
+							    </div>
+							</div>
+							<!--  页脚信息     
+							<div data-options="region:'south'" style="height:32px; text-align: center; line-height: 28px;">
+								公司版权信息
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<!-- 弹框（修改密码） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改密码" 
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgModFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgModForm" action="system/user/resetPwd" method="post">
+				<input name="userDO.userId" th:value="${userId}" type="hidden">
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-passwordbox" name="pwdOld" style="width:100%" data-options="label:'原密码:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input id="pass" class="easyui-passwordbox" name="pwdNew" style="width:100%" data-options="label:'新密码:',required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-passwordbox" validType="confirmPass['#pass']" style="width:100%" data-options="label:'重复新密码:',required:true">
+	            </div>
+        	</form>
+        	<div id="dlgModFoot">
+				<a href="javascript:;" onclick="mySubmitForm('dlgModForm')" class="easyui-linkbutton" >修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+		<!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+		<script type="text/javascript" src="plugins/jquery-toast/jquery.toast.min.js"></script>
+		<script type="text/javascript" src="plugins/sockjs.min.js"></script>
+		
+		<script type="text/javascript">
+		
+			$(function () {
+		        var websocket;
+		        var basePath = $("base").attr("href");
+		        if ('WebSocket' in window) {
+		            console.log("WebSocket");
+		            websocket = new WebSocket((basePath + "echo").replace("http","ws"));
+		        } else if ('MozWebSocket' in window) {
+		            console.log("MozWebSocket");
+		            websocket = new MozWebSocket("ws://echo");
+		        } else {
+		            console.log("SockJS");
+		            websocket = new SockJS(basePath + "sockjs/echo");
+		        }
+		        
+		        websocket.onopen = function (evnt) {
+		            console.log("链接服务器成功!");
+		        };
+		        websocket.onmessage = function (evnt) {
+		            console.log('收到消息:', evnt.data);
+		            var json = JSON.parse(evnt.data);
+		            if (json.hasOwnProperty('code')) {
+		            	//判断某个对象是否含有指定的属性
+		                var code = json.code;
+		            } else {
+		                //推送消息到页面
+		                toast(json.msg, 'info');
+		            }
+		        };
+		        websocket.onerror = function (evnt) {
+		        	console.log("与服务器链接异常!")
+		        };
+		        websocket.onclose = function (evnt) {
+		            console.log("与服务器断开了链接!")
+		        };
+		        
+		    })
+	
+			function toast(text, icon) {
+				if(isEmpty(text)){
+					return;
+				}
+		        $.toast({
+		            text: text,
+		            heading: '新消息',
+		            icon: icon,
+		            showHideTransition: 'slide',
+		            allowToastClose: true,
+		            hideAfter: 3000,
+		            stack: 5,
+		            position: 'top-right',
+	
+		            bgColor: '#444444',
+		            textColor: '#eeeeee',
+		            textAlign: 'left',
+		            loader: true,
+		            loaderBg: '#006eff'
+		        });
+		    }
+	
+			$.extend($.fn.validatebox.defaults.rules, {
+	            confirmPass: {
+	                validator: function(value, param){
+	                    var pass = $(param[0]).passwordbox('getValue');
+	                    return value == pass;
+	                },
+	                message: '新密码和重复新密码不一致!'
+	            }
+	        })
+		    
+		    /**
+		    * 提交表单(EasyUI插件方式)
+		    * @param {String} formID 待提交表单的ID
+		    */
+		    function mySubmitForm(formID){
+		    	$('#' + formID).form('submit', {
+		           onSubmit: function(param){
+		    	       	// param.p1 = 'value1';可以添加额外的参数
+		    	        // 在提交之前触发，返回false以阻止提交操作,可以做一些检查。                    
+		    	       	var isValid = $(this).form('validate');
+		    	   		if (!isValid){
+		    	   			return isValid;     
+		    	   		} else {
+		    	   			$.messager.progress();
+		    	   		}
+		           },
+		           success:function(data){
+		           	// change the JSON string to javascript object
+		           	var data = eval('(' + data + ')'); 
+		           	if (data.code == 0){
+		    	       		$.messager.alert('提示', data.msg, 'info');
+		    	       		$('#dlgMod').dialog('close');
+		                } else {
+		    				$.messager.alert('提示', data.msg, 'error');
+		    			}
+		           		$.messager.progress('close');
+		           },
+		           onLoadError:function(){
+		           		$.messager.progress('close');
+		           }
+		    	});
+		    }
+		    
+		    /**
+		    * 注销
+		    */
+		    function forceLogout(){
+		    	$.messager.confirm('注销', '你确定要退出登录吗?', function(r){
+		    		if (r){
+		    			parent.location.href = 'logout';
+		    		}
+		    	});
+		    }
+		    
+		    
+	    </script> 	
+	    
+	</body>
+
+</html>

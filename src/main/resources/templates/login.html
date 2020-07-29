@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})">  
+<title>SpringBoot2框架</title>  
+<style>
+	.center {
+		width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+</head> 
+
+<body class="center">
+
+	<div id="dlg" class="easyui-dialog" title="用户登录" data-options="" style="width:300px;padding:10px;display: none;">
+        <form id="ff" class="easyui-form" action="login" method="post" data-options="novalidate:true">
+			<div style="margin-bottom: 10px">
+				<input class="easyui-textbox" name="username" value="admin" style="width: 100%; height: 40px; padding: 12px"data-options="prompt:'用户名',iconCls:'icon-man',iconWidth:38,required:true">
+			</div>
+			<div style="margin-bottom: 20px">
+				<input class="easyui-passwordbox" name="password" value="111111" style="width: 100%; height: 40px; padding: 12px" data-options="prompt:'密码',iconCls:'icon-lock',iconWidth:38,required:true">
+			</div>
+		</form>
+		
+		<div>
+			<a href="javascript:;" onclick="submitForm()" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" style="padding: 5px 0px; width: 100%;"> 
+				<span style="font-size: 14px;">登&nbsp;录</span>
+			</a>
+		</div>
+    </div>
+    
+
+<!-- 公共文件（页脚） -->
+<div th:include="include::footer"></div>
+
+<script type="text/javascript">
+
+$(function () {
+	//解决页面超时时登录界面在iframe页面中
+	if (self != top) { 
+	 	window.top.location.reload();
+	}
+})
+
+function submitForm(){
+    $('#ff').form('submit',{
+        onSubmit:function(){
+            return $(this).form('enableValidation').form('validate');
+        },
+	    success:function(data){
+	    	var data = eval('(' + data + ')');
+	    	if(data.code == 0) {
+	    		parent.location.href = 'index';
+	    	} else {
+	    		$.messager.alert('提示', data.msg, 'info');
+	    	}
+	    }
+    });
+}
+
+</script>
+</body>
+</html>

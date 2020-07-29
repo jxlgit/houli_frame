@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+                	
+        <!-- 搜索条件 -->
+        <div id="tb" style="padding:2px 5px; display: none;">
+             <form id="dg_search_form" style="margin: 0px;padding-top: 0px;">
+		        <span>
+				    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-folder-open" plain="true" onclick="previewDataByDialog('dlgMod','dlgModForm','common/generator/get');" >包名配置</a>
+				    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-download" plain="true" onclick="batchCode();" >批量下载</a>
+			    </span>
+			    <!-- 第一种搜索方式，一个文本框搜索一个字段，所有搜索文本框需要在Form表单内 
+		      	<label>表名称: </label><input class="easyui-textbox" name="tableName" style="width:110px">
+		        <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-search" onclick="submitSearch('dg_list','dg_search_form');" >搜索</a>
+		        -->
+		        <!-- 第三种搜索方式，集成easyui-searchbox -->
+		        <span style="float: right;" >
+				    <input class="easyui-searchbox" data-options="prompt:'请输入搜索内容',menu:'#searchmm',searcher:doSearch" style="width:250px;">
+			    </span>
+				<div id="searchmm">
+			        <div data-options="name:'tableName'">表名</div>
+			    </div>
+		    </form>
+		</div>
+	    	
+	    <!-- 表格数据 -->
+        <table id="dg_list" class="easyui-datagrid" style="display: none;" fit="true" data-options="singleSelect:false,method:'post',toolbar:'#tb'" 
+        	url="common/generator/list" rownumbers="true" pagination="true">
+			<thead>
+				<tr>
+					<th data-options="field:'ck',checkbox:true"></th>
+					<th field="tableName" sortable="true">表名称</th>
+					<th field="engine" sortable="true">Engine</th>
+					<th field="tableComment">表描述</th>
+					<th field="createTime">创建时间</th>
+					<th field="#" formatter='formatCZ'>操作</th>
+				</tr>
+			</thead>
+		</table>
+	
+	    
+	    <!-- 弹框（修改） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改" 
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgModFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgModForm" action="common/generator/update" method="post">
+				<div style="margin-bottom:10px">
+					<select class="easyui-combobox" name="templateIndex" style="width:100%" data-options="label:'模板:', labelWidth:110,required:true">
+						<option value="1">模板一（同一页面CRUD）</option>
+                		<option value="2">模板二（打开新页面CRUD）</option>
+                	</select>
+	            </div>
+	        	<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="author" style="width:100%" data-options="label:'作者:',labelWidth:110,required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="email" style="width:100%" data-options="label:'邮箱:',labelWidth:110,required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="package" style="width:100%" data-options="label:'包名:',labelWidth:110,required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-checkbox" name="autoRemovePre" data-options="label:'自动去掉表前缀:',labelWidth:110,required:true">
+	            </div>
+	            <div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="tablePrefix" style="width:100%" data-options="label:'去掉指定表前缀:',labelWidth:110,required:true">
+	            </div>
+        	</form>
+        	<div id="dlgModFoot">
+				<a href="javascript:;" onclick="submitForm('dlgModForm')" class="easyui-linkbutton" style=" ">修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		
+		<script>
+			dgID = 'dg_list';
+			dlgPreviewID = 'dlgPreview';
+			dlgModID = 'dlgMod';
+			dlgAddID = 'dlgAdd';
+			
+			/**
+			* 增加每行的操作按钮，注意formatter里面的field不能是之前已经出现过的field，否则将会直接使用之前的field进行渲染，formatter将无效
+			* @param {String} id id
+			* @param {String} row 当前行的数据
+			* @param {String} index 当前行的序号
+			*/
+			function formatCZ(id, row, index){
+				var cz = 
+					"<a href=\"javascript:void(0)\" onclick=\"code('" + row.tableName + "')\" style=\"color: #3d76b9;text-decoration:underline;margin-right: 10px;\">生成代码</a>";
+				return cz;
+			}
+			
+			/**
+			* 单个下载代码
+			* @param {String} tableName 下载文件名
+			*/
+			function code(tableName) {
+				location.href = encodeURI("common/generator/code/" + tableName);
+			}
+			
+			/**
+			* 批量下载代码
+			*/
+			function batchCode() {
+				// 返回所有选择的行，当没有选择的记录时，返回一个空数组
+				var rows = $('#dg_list').datagrid('getChecked');
+				if (rows.length == 0) {
+					$.messager.alert('提示', '请选择要生成代码的表。', 'info');
+					return;
+				}
+				var tables = new Array();
+				// 遍历所有选择的行数据，取每条数据对应的ID
+				$.each(rows, function(i, row) {
+					tables[i] = row.tableName;
+				});
+				location.href = encodeURI("common/generator/batchCode?tables=" + JSON.stringify(tables));
+			}
+			
+		</script>
+
+	</body>
+
+</html>

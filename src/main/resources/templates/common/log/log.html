@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+                	
+        <!-- 搜索条件 -->
+        <div id="tb" style="padding:2px 5px; display: none;">
+        	<form id="dg_search_form" style="margin: 0px;padding: 0px;">
+        		<span>
+				    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" shiro:hasPermission="common:log:add" onclick="addDataByDialog('dlgAdd');" >添加</a>
+				    <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-trash" plain="true" shiro:hasPermission="common:log:batchRemove" onclick="delDataBatch('dg_list','common/log/batchRemove');">删除</a>
+		    	</span>
+             	<!-- 第一种搜索方式，一个文本框搜索一个字段，所有搜索文本框需要在Form表单内 -->
+             	<!-- 
+		      	<label>用户名: </label><input class="easyui-textbox" name="username" style="width:110px">
+		      	<a href="javascript:;" class="easyui-linkbutton" iconCls="icon-search" onclick="submitSearch('dg_list','dg_search_form');" >搜索</a>
+		      	 -->
+		      	<!-- 第二种搜索方式，一个文本框搜索多个字段，不需要在Form表单内，注意：默认搜索的KEY都是and关系，如果需要or关系， 需要在Mapper.xml文件中将list下的where条件中and改为or
+		      	<input class="easyui-textbox" data-options="prompt:'请输入用户名、用户操作、响应时间'" id="searchName" style="width:250px">
+		        <a href="javascript:;" class="easyui-linkbutton" iconCls="fa fa-search" onclick="moreSearch('dg_list','username,operation,time');" >搜索</a>
+		        -->
+		        <!-- 第三种搜索方式，集成easyui-searchbox -->
+		        <span style="float: right;" >
+				    <input class="easyui-searchbox" data-options="prompt:'请输入搜索内容',menu:'#searchmm',searcher:doSearch" style="width:250px;">
+			    </span>
+				<div id="searchmm">
+			        <div data-options="name:'username'">用户名</div>
+			        <div data-options="name:'operation'">用户操作</div>
+			        <div data-options="name:'time'">响应时间</div>
+			    </div>
+  
+    		</form>
+		    
+		</div>
+	    	
+	    <!-- 表格数据 -->
+        <table id="dg_list" class="easyui-datagrid" style="display: none; width: 100%;" fit="true" data-options="singleSelect:false,method:'post',toolbar:'#tb'" 
+        	url="common/log/list" rownumbers="true" pagination="true">
+			<thead>
+				<tr>
+					<!-- 注意如果有排序，排序的field要和数据库中字段一致，如果不一致，需在Mapper.xml文件中判断 -->
+					<th data-options="field:'ck',checkbox:true"></th>
+																						
+					<th field="userId" >用户id</th>
+																	
+					<th field="username" >用户名</th>
+																	
+					<th field="operation" >用户操作</th>
+																	
+					<th field="time" sortable="true">响应时间</th>
+																	
+					<th field="method" >请求方法</th>
+																	
+					<th field="params" width="220" formatter='showCellTooltip'>请求参数</th>
+																	
+					<th field="ip" >IP地址</th>
+																	
+					<th field="gmtCreate" sortable="true">创建时间</th>
+																
+					<th field="#" formatter='formatCZ'>操作</th>
+				</tr>
+			</thead>
+		</table>
+	
+		<!-- 弹框（预览） -->
+		<div id="dlgPreview" class="easyui-dialog" title="预览" 
+			data-options="iconCls:'icon-search',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgPreviewFoot'" 
+			style="width:400px;padding:10px; display: none;">
+			<form id="dlgPreviewForm">
+																							
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="userId" style="width:100%" data-options="label:'用户id:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="username" style="width:100%" data-options="label:'用户名:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="operation" style="width:100%" data-options="label:'用户操作:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="time" style="width:100%" data-options="label:'响应时间:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="method" style="width:100%" data-options="label:'请求方法:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="params" style="width:100%" data-options="label:'请求参数:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="ip" style="width:100%" data-options="label:'IP地址:',readonly:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="gmtCreate" style="width:100%" data-options="label:'创建时间:',readonly:true">
+	            </div>
+	            									
+	        	<div id="dlgPreviewFoot">
+					<a href="javascript:;" onclick="$('#dlgPreview').dialog('close')" class="easyui-linkbutton">关闭</a>
+				</div>
+			</form>
+	    </div>
+	    
+	    <!-- 弹框（修改） -->
+		<div id="dlgMod" class="easyui-dialog" title="修改" 
+			data-options="iconCls:'icon-edit',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgModFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgModForm" action="common/log/update" method="post">
+														
+					<input name="id" type="hidden">
+																			
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="userId" style="width:100%" data-options="label:'用户id:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="username" style="width:100%" data-options="label:'用户名:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="operation" style="width:100%" data-options="label:'用户操作:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="time" style="width:100%" data-options="label:'响应时间:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="method" style="width:100%" data-options="label:'请求方法:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="params" style="width:100%" data-options="label:'请求参数:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="ip" style="width:100%" data-options="label:'IP地址:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="gmtCreate" style="width:100%" data-options="label:'创建时间:',required:true">
+	            </div>
+	            									
+        	</form>
+        	<div id="dlgModFoot">
+				<a href="javascript:;" onclick="submitForm('dlgModForm')" class="easyui-linkbutton" style=" ">修改</a>
+				<a href="javascript:;" onclick="$('#dlgMod').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+	    <!-- 弹框（添加） -->
+		<div id="dlgAdd" class="easyui-dialog" title="添加" 
+			data-options="iconCls:'icon-add',minimizable:true,maximizable:true,resizable:true,modal:true,closed: true,buttons:'#dlgAddFoot'" 
+			style="width:400px;padding:10px;display: none;">
+			<form id="dlgAddForm" action="common/log/save" method="post">
+																							
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="userId" style="width:100%" data-options="label:'用户id:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="username" style="width:100%" data-options="label:'用户名:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="operation" style="width:100%" data-options="label:'用户操作:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="time" style="width:100%" data-options="label:'响应时间:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="method" style="width:100%" data-options="label:'请求方法:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="params" style="width:100%" data-options="label:'请求参数:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="ip" style="width:100%" data-options="label:'IP地址:',required:true">
+	            </div>
+	            															
+				<div style="margin-bottom:10px">
+	                <input class="easyui-textbox" name="gmtCreate" style="width:100%" data-options="label:'创建时间:',required:true">
+	            </div>
+	            									
+        	</form>
+        	<div id="dlgAddFoot">
+				<a href="javascript:;" onclick="submitForm('dlgAddForm')" class="easyui-linkbutton">添加</a>
+				<a href="javascript:;" onclick="$('#dlgAdd').dialog('close')" class="easyui-linkbutton">取消</a>
+			</div>
+	    </div>
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+		<script type="text/javascript" src="app/js/common/log/log.js"></script>
+		
+		<div shiro:hasPermission="common:log:get">
+			<script>comm_shiro_str += 'common:log:get,';</script>
+		</div>
+		<div shiro:hasPermission="common:log:edit">
+			<script>comm_shiro_str += 'common:log:edit,';</script>
+		</div>
+		<div shiro:hasPermission="common:log:remove">
+			<script>comm_shiro_str += 'common:log:remove,';</script>
+		</div>
+    
+	</body>
+
+</html>

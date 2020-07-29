@@ -1,0 +1,322 @@
+2020-04-23 11:03:26 -The following profiles are active: dev
+2020-04-23 11:03:29 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-04-23 11:03:29 -Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-04-23 11:03:29 -Finished Spring Data repository scanning in 96ms. Found 0 repository interfaces.
+2020-04-23 11:03:30 -Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-04-23 11:03:30 -BeanFactory id=9ffda87e-9ccf-3e67-9e05-37a3abaa0b5c
+2020-04-23 11:03:30 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b1ee29c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:31 -Bean 'shiroConfig' of type [com.houli.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$c767ea57] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:31 -Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:31 -Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$5038a0e6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:31 -Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:32 -Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:32 -Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:57 -Bean 'userRealm' of type [com.houli.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:57 -Bean 'rediscacheManager' of type [com.houli.system.shiro.redis.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:57 -获取名称为: com.houli.system.shiro.UserRealm.authorizationCache 的RedisCache实例
+2020-04-23 11:03:57 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:58 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:58 -Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$5738e599] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-23 11:03:59 -Tomcat initialized with port(s): 8080 (http)
+2020-04-23 11:03:59 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-04-23 11:03:59 -Starting service [Tomcat]
+2020-04-23 11:03:59 -Starting Servlet Engine: Apache Tomcat/9.0.12
+2020-04-23 11:03:59 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_101\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\NetSarang\Xftp 6\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\TortoiseSVN\bin;D:\android\adt-bundle-windows-x86-20131030\sdk\platform-tools;C:\Program Files\Java\jdk1.8.0_101\bin;C:\apache-ant-1.9.6\bin;C:\gradle-2.13\bin;$HADOOP_HOME\bin;%MYCAT_HOME%\bin;D:\MySQL\mysql-5.7.10-winx64\bin;C:\Program Files\nodejs\;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Scripts;C:\Program Files\Git\cmd;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Yarn\bin;D:\sts-bundle\sts-3.9.3.RELEASE;;.]
+2020-04-23 11:03:59 -Initializing Spring embedded WebApplicationContext
+2020-04-23 11:03:59 -Root WebApplicationContext: initialization completed in 33436 ms
+2020-04-23 11:03:59 -No URLs will be polled as dynamic configuration sources.
+2020-04-23 11:03:59 -To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-23 11:03:59 -DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@5013178d
+2020-04-23 11:04:01 -{dataSource-1} inited
+2020-04-23 11:04:02 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'webMvcMetricsFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'sessionRepositoryFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'formContentFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-23 11:04:02 -Filter xssFilter was not registered (disabled)
+2020-04-23 11:04:02 -Mapping filter: 'httpTraceFilter' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'webStatFilter' to urls: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2020-04-23 11:04:02 -Mapping filter: 'authenticationFilter' to: [/*]
+2020-04-23 11:04:02 -Servlet statViewServlet mapped to [/druid/*]
+2020-04-23 11:04:02 -Servlet hystrixMetricsStreamServlet mapped to [/hystrix.stream]
+2020-04-23 11:04:02 -Servlet proxyStreamServlet mapped to [/proxy.stream]
+2020-04-23 11:04:02 -Servlet dispatcherServlet mapped to [/]
+2020-04-23 11:04:04 -ApplicationContext registed-->org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@72f2a0ec, started on Thu Apr 23 11:03:26 CST 2020, parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4488372a
+2020-04-23 11:04:05 -Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-23 11:04:06 -Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-04-23 11:04:06 -Initializing ExecutorService 'defaultSockJsTaskScheduler'
+2020-04-23 11:04:06 -No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/C:/Users/Administrator/.m2/repository/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar!/ehcache-failsafe.xml
+2020-04-23 11:04:07 -Starting without optional epoll library
+2020-04-23 11:04:07 -Starting without optional kqueue library
+2020-04-23 11:04:11 -No spring.application.name found, defaulting to 'application'
+2020-04-23 11:04:11 -No URLs will be polled as dynamic configuration sources.
+2020-04-23 11:04:11 -To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-04-23 11:04:11 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-23 11:04:12 -LiveReload server is running on port 35729
+2020-04-23 11:04:12 -[THYMELEAF][restartedMain] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-04-23 11:04:12 -Adding welcome page template: index
+2020-04-23 11:04:14 -Context refreshed
+2020-04-23 11:04:15 -Found 1 custom documentation plugin(s)
+2020-04-23 11:04:15 -Scanning for api listing references
+2020-04-23 11:04:15 -Generating unique operation named: removeUsingPOST_1
+2020-04-23 11:04:16 -Generating unique operation named: addUsingGET_1
+2020-04-23 11:04:16 -Generating unique operation named: editUsingGET_1
+2020-04-23 11:04:16 -Generating unique operation named: getUsingGET_1
+2020-04-23 11:04:16 -Generating unique operation named: listUsingPOST_1
+2020-04-23 11:04:16 -Generating unique operation named: removeUsingPOST_2
+2020-04-23 11:04:16 -Generating unique operation named: removeUsingPOST_3
+2020-04-23 11:04:16 -Generating unique operation named: saveUsingPOST_1
+2020-04-23 11:04:16 -Generating unique operation named: treeUsingGET_1
+2020-04-23 11:04:16 -Generating unique operation named: treeUsingGET_2
+2020-04-23 11:04:16 -Generating unique operation named: updateUsingPOST_1
+2020-04-23 11:04:16 -Generating unique operation named: addUsingGET_2
+2020-04-23 11:04:16 -Generating unique operation named: editUsingGET_2
+2020-04-23 11:04:16 -Generating unique operation named: getUsingGET_2
+2020-04-23 11:04:16 -Generating unique operation named: listUsingPOST_2
+2020-04-23 11:04:16 -Generating unique operation named: saveUsingPOST_2
+2020-04-23 11:04:16 -Generating unique operation named: saveUsingPOST_3
+2020-04-23 11:04:16 -Generating unique operation named: updateUsingPOST_2
+2020-04-23 11:04:16 -Generating unique operation named: addUsingGET_3
+2020-04-23 11:04:16 -Generating unique operation named: batchRemoveUsingPOST_1
+2020-04-23 11:04:16 -Generating unique operation named: editUsingGET_3
+2020-04-23 11:04:16 -Generating unique operation named: listUsingPOST_3
+2020-04-23 11:04:16 -Generating unique operation named: removeUsingPOST_4
+2020-04-23 11:04:16 -Generating unique operation named: saveUsingPOST_4
+2020-04-23 11:04:16 -Generating unique operation named: treeUsingGET_3
+2020-04-23 11:04:16 -Generating unique operation named: treeViewUsingGET_1
+2020-04-23 11:04:16 -Generating unique operation named: updateUsingPOST_3
+2020-04-23 11:04:17 -Starting ProtocolHandler ["http-nio-8080"]
+2020-04-23 11:04:17 -Using a shared selector for servlet write/read
+2020-04-23 11:04:17 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-23 11:04:17 -Started HouliframeApplication in 54.607 seconds (JVM running for 57.738)
+2020-04-23 11:04:44 -Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-23 11:04:44 -Initializing Servlet 'dispatcherServlet'
+2020-04-23 11:04:44 -Completed initialization in 22 ms
+2020-04-23 11:04:46 -请求地址 : http://localhost:8080/login
+2020-04-23 11:04:46 -HTTP METHOD : GET
+2020-04-23 11:04:46 -CLASS_METHOD : com.houli.system.controller.LoginController.login
+2020-04-23 11:04:46 -参数 : [org.apache.shiro.web.servlet.ShiroHttpServletRequest@6e9d09b5, com.alibaba.druid.support.http.WebStatFilter$StatHttpServletResponseWrapper@492661bc]
+2020-04-23 11:04:46 -耗时 : 57
+2020-04-23 11:04:46 -返回值 : ModelAndView [view="login"; model=null]
+2020-04-23 11:04:49 -请求地址 : http://localhost:8080/
+2020-04-23 11:04:49 -HTTP METHOD : GET
+2020-04-23 11:04:49 -CLASS_METHOD : com.houli.system.controller.LoginController.welcome
+2020-04-23 11:04:49 -参数 : [{}]
+2020-04-23 11:04:49 -耗时 : 1
+2020-04-23 11:04:49 -返回值 : login
+2020-04-23 11:04:52 -==>  Preparing: select a.`user_id`,a.`username`,a.`name`,a.`password`,a.`dept_id`,a.`email`,a.`mobile`,a.`status`,a.`user_id_create`,a.`gmt_create`,a.`gmt_modified`, GROUP_CONCAT(b.role_id) role_ids_str, GROUP_CONCAT(c.role_name) role_names_str from sys_user a INNER JOIN sys_user_role b ON a.user_id = b.user_id INNER JOIN sys_role c ON b.role_id = c.role_id WHERE a.username = ? GROUP BY a.`user_id` order by a.user_id desc 
+2020-04-23 11:04:53 -==> Parameters: admin(String)
+2020-04-23 11:04:54 -<==      Total: 1
+2020-04-23 11:04:54 -请求地址 : http://localhost:8080/login
+2020-04-23 11:04:54 -HTTP METHOD : POST
+2020-04-23 11:04:54 -CLASS_METHOD : com.houli.system.controller.LoginController.ajaxLogin
+2020-04-23 11:04:54 -参数 : [admin, 111111]
+2020-04-23 11:04:54 -==>  Preparing: select a.`user_id`,a.`username`,a.`name`,a.`password`,a.`dept_id`,a.`email`,a.`mobile`,a.`status`,a.`user_id_create`,a.`gmt_create`,a.`gmt_modified`, GROUP_CONCAT(b.role_id) role_ids_str, GROUP_CONCAT(c.role_name) role_names_str from sys_user a INNER JOIN sys_user_role b ON a.user_id = b.user_id INNER JOIN sys_role c ON b.role_id = c.role_id WHERE a.username = ? GROUP BY a.`user_id` order by a.user_id desc 
+2020-04-23 11:04:54 -==> Parameters: admin(String)
+2020-04-23 11:04:54 -<==      Total: 1
+2020-04-23 11:04:54 -耗时 : 29
+2020-04-23 11:04:54 -返回值 : {msg=操作成功, code=0}
+2020-04-23 11:04:54 -请求地址 : http://localhost:8080/index
+2020-04-23 11:04:54 -HTTP METHOD : GET
+2020-04-23 11:04:54 -CLASS_METHOD : com.houli.system.controller.LoginController.index
+2020-04-23 11:04:54 -参数 : [{}]
+2020-04-23 11:04:54 -==>  Preparing: select distinct m.menu_id , parent_id, name, url, perms,`type`,icon,order_num,gmt_create, gmt_modified from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id =ur.role_id where ur.user_id = ? and m.type in(0,1) order by m.order_num 
+2020-04-23 11:04:54 -==> Parameters: 2(Long)
+2020-04-23 11:04:54 -<==      Total: 15
+2020-04-23 11:04:54 -耗时 : 233
+2020-04-23 11:04:54 -返回值 : index
+2020-04-23 11:04:55 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-04-23 11:04:55 -==> Parameters: 2(Long), admin(String), 登录成功进入首页(String), 236(Integer), com.houli.system.controller.LoginController.index()(String), null, 127.0.0.1(String), 2020-04-23 11:04:55.146(Timestamp)
+2020-04-23 11:04:56 -<==    Updates: 1
+2020-04-23 11:04:58 -WebSocket链接成功......
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -==>  Preparing: select distinct m.perms from sys_menu m left join sys_role_menu rm on m.menu_id = rm.menu_id left join sys_user_role ur on rm.role_id = ur.role_id where ur.user_id = ? 
+2020-04-23 11:05:11 -==> Parameters: 2(Long)
+2020-04-23 11:05:11 -<==      Total: 54
+2020-04-23 11:05:11 -根据key从存储 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -请求地址 : http://localhost:8080/template_code/table1
+2020-04-23 11:05:11 -HTTP METHOD : GET
+2020-04-23 11:05:11 -CLASS_METHOD : com.houli.template.controller.Table1Controller.Table
+2020-04-23 11:05:11 -参数 : []
+2020-04-23 11:05:11 -耗时 : 1
+2020-04-23 11:05:11 -返回值 : template_code/table1/list
+2020-04-23 11:05:11 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-04-23 11:05:11 -==> Parameters: 2(Long), admin(String), 访问Table1资源(String), 2(Integer), com.houli.template.controller.Table1Controller.Table()(String), null, 127.0.0.1(String), 2020-04-23 11:05:11.109(Timestamp)
+2020-04-23 11:05:11 -<==    Updates: 1
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -请求地址 : http://localhost:8080/template_code/table1/list
+2020-04-23 11:05:11 -HTTP METHOD : POST
+2020-04-23 11:05:11 -CLASS_METHOD : com.houli.template.controller.Table1Controller.list
+2020-04-23 11:05:11 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:11 -==>  Preparing: select `id`,`username`,`password`,`email`,`address` from sys_table order by id desc limit ?, ? 
+2020-04-23 11:05:11 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:11 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:11 -请求地址 : http://localhost:8080/template_code/table1/list
+2020-04-23 11:05:11 -HTTP METHOD : POST
+2020-04-23 11:05:11 -CLASS_METHOD : com.houli.template.controller.Table1Controller.list
+2020-04-23 11:05:11 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:11 -==>  Preparing: select `id`,`username`,`password`,`email`,`address` from sys_table order by id desc limit ?, ? 
+2020-04-23 11:05:11 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:12 -<==      Total: 5
+2020-04-23 11:05:12 -<==      Total: 5
+2020-04-23 11:05:12 -==>  Preparing: select count(*) from sys_table 
+2020-04-23 11:05:12 -==>  Preparing: select count(*) from sys_table 
+2020-04-23 11:05:12 -==> Parameters: 
+2020-04-23 11:05:12 -<==      Total: 1
+2020-04-23 11:05:12 -==> Parameters: 
+2020-04-23 11:05:12 -耗时 : 44
+2020-04-23 11:05:12 -返回值 : com.houli.common.utils.PageUtils@6e584620
+2020-04-23 11:05:12 -<==      Total: 1
+2020-04-23 11:05:12 -耗时 : 252
+2020-04-23 11:05:12 -返回值 : com.houli.common.utils.PageUtils@16ae5b0
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -请求地址 : http://localhost:8080/template_code/table2
+2020-04-23 11:05:13 -HTTP METHOD : GET
+2020-04-23 11:05:13 -CLASS_METHOD : com.houli.template.controller.Table2Controller.Table
+2020-04-23 11:05:13 -参数 : []
+2020-04-23 11:05:13 -耗时 : 0
+2020-04-23 11:05:13 -返回值 : template_code/table2/list
+2020-04-23 11:05:13 -==>  Preparing: insert into sys_log ( `user_id`, `username`, `operation`, `time`, `method`, `params`, `ip`, `gmt_create` ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-04-23 11:05:13 -==> Parameters: 2(Long), admin(String), 访问Table2资源(String), 0(Integer), com.houli.template.controller.Table2Controller.Table()(String), null, 127.0.0.1(String), 2020-04-23 11:05:13.586(Timestamp)
+2020-04-23 11:05:13 -<==    Updates: 1
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -请求地址 : http://localhost:8080/template_code/table2/list
+2020-04-23 11:05:13 -HTTP METHOD : POST
+2020-04-23 11:05:13 -CLASS_METHOD : com.houli.template.controller.Table2Controller.list
+2020-04-23 11:05:13 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:13 -==>  Preparing: select `id`,`username`,`password`,`email`,`address` from sys_table order by id desc limit ?, ? 
+2020-04-23 11:05:13 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:13 -<==      Total: 5
+2020-04-23 11:05:13 -==>  Preparing: select count(*) from sys_table 
+2020-04-23 11:05:13 -==> Parameters: 
+2020-04-23 11:05:13 -<==      Total: 1
+2020-04-23 11:05:13 -耗时 : 11
+2020-04-23 11:05:13 -返回值 : com.houli.common.utils.PageUtils@55dab1f1
+2020-04-23 11:05:13 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:13 -请求地址 : http://localhost:8080/template_code/table2/list
+2020-04-23 11:05:13 -HTTP METHOD : POST
+2020-04-23 11:05:13 -CLASS_METHOD : com.houli.template.controller.Table2Controller.list
+2020-04-23 11:05:13 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:13 -==>  Preparing: select `id`,`username`,`password`,`email`,`address` from sys_table order by id desc limit ?, ? 
+2020-04-23 11:05:13 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:13 -<==      Total: 5
+2020-04-23 11:05:13 -==>  Preparing: select count(*) from sys_table 
+2020-04-23 11:05:13 -==> Parameters: 
+2020-04-23 11:05:13 -<==      Total: 1
+2020-04-23 11:05:13 -耗时 : 10
+2020-04-23 11:05:13 -返回值 : com.houli.common.utils.PageUtils@1ad3bdb9
+2020-04-23 11:05:23 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:23 -请求地址 : http://localhost:8080/common/log
+2020-04-23 11:05:23 -HTTP METHOD : GET
+2020-04-23 11:05:23 -CLASS_METHOD : com.houli.common.controller.LogController.Log
+2020-04-23 11:05:23 -参数 : []
+2020-04-23 11:05:23 -耗时 : 0
+2020-04-23 11:05:23 -返回值 : common/log/log
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -请求地址 : http://localhost:8080/common/log/list
+2020-04-23 11:05:24 -HTTP METHOD : POST
+2020-04-23 11:05:24 -CLASS_METHOD : com.houli.common.controller.LogController.list
+2020-04-23 11:05:24 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:24 -==>  Preparing: select `id`,`user_id`,`username`,`operation`,`time`,`method`,`params`,`ip`,`gmt_create` from sys_log order by id desc limit ?, ? 
+2020-04-23 11:05:24 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:24 -<==      Total: 10
+2020-04-23 11:05:24 -==>  Preparing: select count(*) from sys_log 
+2020-04-23 11:05:24 -==> Parameters: 
+2020-04-23 11:05:24 -<==      Total: 1
+2020-04-23 11:05:24 -耗时 : 69
+2020-04-23 11:05:24 -返回值 : com.houli.common.utils.PageUtils@2c920eda
+2020-04-23 11:05:24 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:24 -请求地址 : http://localhost:8080/common/log/list
+2020-04-23 11:05:24 -HTTP METHOD : POST
+2020-04-23 11:05:24 -CLASS_METHOD : com.houli.common.controller.LogController.list
+2020-04-23 11:05:24 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:24 -==>  Preparing: select `id`,`user_id`,`username`,`operation`,`time`,`method`,`params`,`ip`,`gmt_create` from sys_log order by id desc limit ?, ? 
+2020-04-23 11:05:24 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:24 -<==      Total: 10
+2020-04-23 11:05:24 -==>  Preparing: select count(*) from sys_log 
+2020-04-23 11:05:24 -==> Parameters: 
+2020-04-23 11:05:24 -<==      Total: 1
+2020-04-23 11:05:24 -耗时 : 13
+2020-04-23 11:05:24 -返回值 : com.houli.common.utils.PageUtils@722d9697
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:31 -请求地址 : http://localhost:8080/system/menu
+2020-04-23 11:05:31 -HTTP METHOD : GET
+2020-04-23 11:05:31 -CLASS_METHOD : com.houli.system.controller.MenuController.menu
+2020-04-23 11:05:31 -参数 : [{}]
+2020-04-23 11:05:31 -耗时 : 0
+2020-04-23 11:05:31 -返回值 : system/menu/menu
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:31 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:32 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:32 -请求地址 : http://localhost:8080/system/menu/list
+2020-04-23 11:05:32 -HTTP METHOD : POST
+2020-04-23 11:05:32 -CLASS_METHOD : com.houli.system.controller.MenuController.list
+2020-04-23 11:05:32 -参数 : [{}]
+2020-04-23 11:05:32 -==>  Preparing: select `menu_id`,`parent_id`,`name`,`url`,`perms`,`type`,`icon`,`order_num`,`gmt_create`,`gmt_modified` from sys_menu order by menu_id desc 
+2020-04-23 11:05:32 -==> Parameters: 
+2020-04-23 11:05:32 -<==      Total: 59
+2020-04-23 11:05:32 -耗时 : 20
+2020-04-23 11:05:32 -返回值 : [MenuDO [menuId=22, parentId=0, name=系统管理, url=null, perms=null, type=0, icon=fa fa-cog, orderNum=4, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=53, parentId=22, name=菜单管理, url=system/menu, perms=system:menu:menu, type=1, icon=null, orderNum=5, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=58, parentId=53, name=批量删除, url=null, perms=system:menu:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=57, parentId=53, name=删除, url=null, perms=system:menu:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=56, parentId=53, name=查看, url=null, perms=system:menu:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=55, parentId=53, name=编辑, url=null, perms=system:menu:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=54, parentId=53, name=新增, url=null, perms=system:menu:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=47, parentId=22, name=部门管理, url=system/dept, perms=system:dept:dept, type=1, icon=null, orderNum=3, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=52, parentId=47, name=批量删除, url=null, perms=system:dept:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=51, parentId=47, name=删除, url=null, perms=system:dept:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=50, parentId=47, name=查看, url=null, perms=system:dept:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=49, parentId=47, name=编辑, url=null, perms=system:dept:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=48, parentId=47, name=新增, url=null, perms=system:dept:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=41, parentId=22, name=用户管理, url=system/user, perms=system:user:user, type=1, icon=null, orderNum=2, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=59, parentId=41, name=重置密码, url=, perms=system:user:resetPwd, type=2, icon=, orderNum=2, gmtCreate=Tue Dec 25 11:25:31 CST 2018, gmtModified=null, state=open, children=null], MenuDO [menuId=46, parentId=41, name=批量删除, url=null, perms=system:user:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=45, parentId=41, name=删除, url=null, perms=system:user:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=44, parentId=41, name=查看, url=null, perms=system:user:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=43, parentId=41, name=编辑, url=null, perms=system:user:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=42, parentId=41, name=新增, url=null, perms=system:user:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=35, parentId=22, name=角色管理, url=system/role, perms=system:role:role, type=1, icon=null, orderNum=4, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=40, parentId=35, name=批量删除, url=null, perms=system:role:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=39, parentId=35, name=删除, url=null, perms=system:role:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=38, parentId=35, name=查看, url=null, perms=system:role:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=37, parentId=35, name=编辑, url=null, perms=system:role:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=36, parentId=35, name=新增, url=null, perms=system:role:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=29, parentId=22, name=字典管理, url=common/dict, perms=common:dict:dict, type=1, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=34, parentId=29, name=批量删除, url=null, perms=common:dict:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=33, parentId=29, name=删除, url=null, perms=common:dict:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=32, parentId=29, name=查看, url=null, perms=common:dict:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=31, parentId=29, name=编辑, url=null, perms=common:dict:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=30, parentId=29, name=新增, url=null, perms=common:dict:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]]]], MenuDO [menuId=20, parentId=0, name=系统监控, url=null, perms=null, type=0, icon=fa fa-calendar, orderNum=3, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=23, parentId=20, name=系统日志, url=common/log, perms=common:log:log, type=1, icon=null, orderNum=2, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=28, parentId=23, name=批量删除, url=null, perms=common:log:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=27, parentId=23, name=删除, url=null, perms=common:log:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=26, parentId=23, name=查看, url=null, perms=common:log:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=25, parentId=23, name=编辑, url=null, perms=common:log:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=24, parentId=23, name=新增, url=null, perms=common:log:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=21, parentId=20, name=运行监控, url=druid/index.html, perms=null, type=1, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=15, parentId=0, name=代码生成管理, url=null, perms=null, type=0, icon=fa fa-code, orderNum=2, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=16, parentId=15, name=代码生成, url=common/generator, perms=common:generator:generator, type=1, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=19, parentId=16, name=批量生成代码, url=null, perms=common:generator:batchcode, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=18, parentId=16, name=生成代码, url=null, perms=common:generator:code, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=17, parentId=16, name=包名配置, url=null, perms=common:generator:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]]]], MenuDO [menuId=1, parentId=0, name=模板管理, url=null, perms=null, type=0, icon=fa fa-wpforms, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=14, parentId=1, name=模板说明, url=html/template_description.html, perms=null, type=1, icon=null, orderNum=3, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=8, parentId=1, name=模板二管理, url=template_code/table2, perms=template_code:table2:table, type=1, icon=null, orderNum=2, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=13, parentId=8, name=批量删除, url=null, perms=template_code:table2:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=12, parentId=8, name=删除, url=null, perms=template_code:table2:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=11, parentId=8, name=查看, url=null, perms=template_code:table2:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=10, parentId=8, name=编辑, url=null, perms=template_code:table2:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=9, parentId=8, name=新增, url=null, perms=template_code:table2:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]], MenuDO [menuId=2, parentId=1, name=模板一管理, url=template_code/table1, perms=template_code:table1:table, type=1, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=closed, children=[MenuDO [menuId=7, parentId=2, name=批量删除, url=null, perms=template_code:table1:batchRemove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=6, parentId=2, name=删除, url=null, perms=template_code:table1:remove, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=5, parentId=2, name=查看, url=null, perms=template_code:table1:get, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=4, parentId=2, name=编辑, url=null, perms=template_code:table1:edit, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null], MenuDO [menuId=3, parentId=2, name=新增, url=null, perms=template_code:table1:add, type=2, icon=null, orderNum=1, gmtCreate=Thu Nov 29 18:13:25 CST 2018, gmtModified=Thu Nov 29 18:13:25 CST 2018, state=open, children=null]]]]]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -请求地址 : http://localhost:8080/common/dict
+2020-04-23 11:05:33 -HTTP METHOD : GET
+2020-04-23 11:05:33 -CLASS_METHOD : com.houli.common.controller.DictController.Dict
+2020-04-23 11:05:33 -参数 : []
+2020-04-23 11:05:33 -耗时 : 1
+2020-04-23 11:05:33 -返回值 : common/dict/dict
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:33 -请求地址 : http://localhost:8080/common/dict/list
+2020-04-23 11:05:33 -HTTP METHOD : POST
+2020-04-23 11:05:33 -CLASS_METHOD : com.houli.common.controller.DictController.list
+2020-04-23 11:05:33 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:33 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict order by id desc limit ?, ? 
+2020-04-23 11:05:33 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:33 -<==      Total: 10
+2020-04-23 11:05:33 -==>  Preparing: select count(*) from sys_dict 
+2020-04-23 11:05:33 -==> Parameters: 
+2020-04-23 11:05:33 -<==      Total: 1
+2020-04-23 11:05:33 -耗时 : 87
+2020-04-23 11:05:33 -返回值 : com.houli.common.utils.PageUtils@1c58dce2
+2020-04-23 11:05:34 -根据key从Redis中获取对象 key [UserDO [userId=2, username=admin, name=代码生成权限, password=ca9ad0874e12c187fc3176546c10e702, deptId=6, deptName=null, email=null, mobile=null, status=1, userIdCreate=null, gmtCreate=null, gmtModified=null, sex=null, birth=null, picId=null, liveAddress=null, hobby=null, province=null, city=null, district=null, roleIds=null, roleIdsStr=2, roleNamesStr=代码生成权限]]
+2020-04-23 11:05:34 -请求地址 : http://localhost:8080/common/dict/list
+2020-04-23 11:05:34 -HTTP METHOD : POST
+2020-04-23 11:05:34 -CLASS_METHOD : com.houli.common.controller.DictController.list
+2020-04-23 11:05:34 -参数 : [{page=1, rows=10}]
+2020-04-23 11:05:34 -==>  Preparing: select `id`,`name`,`value`,`type`,`description`,`sort`,`parent_id`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag` from sys_dict order by id desc limit ?, ? 
+2020-04-23 11:05:34 -==> Parameters: 0(Integer), 10(Integer)
+2020-04-23 11:05:34 -<==      Total: 10
+2020-04-23 11:05:34 -==>  Preparing: select count(*) from sys_dict 
+2020-04-23 11:05:34 -==> Parameters: 
+2020-04-23 11:05:34 -<==      Total: 1
+2020-04-23 11:05:34 -耗时 : 12
+2020-04-23 11:05:34 -返回值 : com.houli.common.utils.PageUtils@4f0d9093
+2020-04-23 11:05:40 -WebSocket链接关闭......CloseStatus[code=1001, reason=null]
+2020-04-23 11:05:45 -Application shutdown requested.
+2020-04-23 11:05:45 -Shutting down ExecutorService 'applicationTaskExecutor'
+2020-04-23 11:05:45 -Shutting down ExecutorService 'defaultSockJsTaskScheduler'
+2020-04-23 11:05:45 -{dataSource-1} closed

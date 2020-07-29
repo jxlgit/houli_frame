@@ -1,0 +1,36 @@
+
+<head th:fragment="header(title,links,style,script)">
+	<base th:href="${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath() } +'/'"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 填充个页面自定义的title  --> 
+	<th:block th:if="${title}">
+		<title th:replace="${title}"></title>
+	</th:block>
+
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	
+	<link rel="stylesheet" type="text/css" href="plugins/jquery-easyui/themes/material-teal/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="plugins/jquery-easyui/themes/icon.css"/>
+	<link rel="stylesheet" href="app/css/common.css"/>
+	
+	<!-- 填充个页面自定义的css文件和样式  -->
+	<th:block th:if="${links}">
+		<th:block th:replace="${links}" />  
+	</th:block>
+	<th:block th:if="${style}">
+		<th:block th:replace="${style}" /> 
+	</th:block>
+	<th:block th:if="${script}">
+		<th:block th:replace="${script}" /> 
+	</th:block>
+</head>
+
+<div th:fragment="footer">
+	<script type="text/javascript" src="plugins/jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="plugins/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="app/js/common.js"></script>	
+	
+</div>

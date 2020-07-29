@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head th:include="include::header(~{::head/title},~{::head/link},~{::head/style},~{::head/script})"></head>
+
+	<body>
+	
+		<div class="easyui-panel" fit="false" style="display: none; padding: 5px; width: 100%;" title="预览" data-options="footer:'#pagePreviewFoot'">
+			#foreach($column in $columns)
+					#if($pk.columnName != $column.columnName)
+					
+	        <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="${column.attrname}" th:value="${${classname}.${column.attrname}}" style="width:30%" data-options="label:'${column.comments}:',readonly:true">
+            </div>
+	            	#end
+			#end
+        	
+        	<div id="pagePreviewFoot" style="padding: 5px;">
+				<a href="javascript:;" onclick="removeCurrentTab()" class="easyui-linkbutton">关闭</a>
+			</div>
+	    </div>        
+	    
+	    <!-- 公共文件（页脚） -->
+	    <div th:include="include::footer"></div>
+
+		
+	</body>
+
+</html>
